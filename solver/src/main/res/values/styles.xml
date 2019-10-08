@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="AppTheme" parent="Theme.AppCompat.Light"> 
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorAccent">@color/accent</item>
+		<item name="android:textColorPrimary">@color/primary_text</item>
+		<item name="android:navigationBarColor">@color/primary</item>
+	</style>
+	<style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorAccent">@color/accent</item>
+		<item name="android:textColorPrimary">@color/primary_text</item>
+		<item name="android:navigationBarColor">@color/primary</item>
+		<item name="android:windowFullscreen">true</item>
+	</style>
+	
+	<!-- example style color name
+	<style name="Theme.Appcelerator" parent="@style/Theme.AppCompat.Light">
+		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimaryDark">@color/primaryDark</item>      
+		<item name="colorAccent">@color/primaryDark</item>
+		<item name="colorControlHighlight">@color/colorHighlight</item>      
+		<item name="colorControlActivated">@color/colorActivated</item>      
+		<item name="android:navigationBarColor">@color/primary</item>
+		<item name="android:statusBarColor">@color/primaryDark</item>
+		<item name="android:textColorPrimary">@color/textPrimary</item>
+	</style>
+	<color name="colorActivated">#caeeff</color>
+	<color name="primary">#C41230</color>
+	<color name="primaryDark">#9E0C24</color>
+	<color name="textPrimary">#000</color>
+	<color name="accent">#FFCCD4</color>
+	<color name="colorHighlight">#ffaaff</color>
+	-->
+	
+</resources>

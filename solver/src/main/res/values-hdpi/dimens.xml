@@ -1,0 +1,9 @@
+<resources>
+	
+    <dimen name="card_height">130dp</dimen>
+	
+	<dimen name="camera_width">480px</dimen>
+	<dimen name="camera_height_portrait">720px</dimen>
+	<dimen name="camera_height_landscape">320px</dimen>
+	
+</resources>
