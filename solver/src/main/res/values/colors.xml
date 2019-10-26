@@ -2,7 +2,8 @@
 <resources>
 	<color name="primary">#ff455a64</color>
 	<color name="primary_dark">#ff37474f</color>
-	<color name="primary_light">#ffcfd8dc</color>
+	<color name="primary_light">#526D7B</color>
+	<color name="primary_bright">#DDDDDD</color>
 	<color name="accent">#ff546e7a</color>
 	<color name="primary_text">#FFFFFF</color>
 	<color name="secondary_text">#727272</color>

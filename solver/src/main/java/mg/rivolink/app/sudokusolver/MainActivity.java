@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements CardViewAdapter.I
 				startActivityForResult(intent,FILE_KEY);
 				break;
 			}
+			case 3:{
+				startActivity(new Intent(this,PlayActivity.class));
+				break;
+			}
 			default:{
 			}
 		}
