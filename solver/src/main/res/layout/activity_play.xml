@@ -32,17 +32,22 @@
 
 				<TextView
 					android:id="@+id/text_time"
+					android:background="@drawable/shape_border"
+					android:gravity="center_vertical"
 					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:paddingLeft="50px"
+					android:layout_height="30dp"
+					android:paddingLeft="10dp"
 					android:textColor="#fff"
-					android:text="02'36"/>
+					android:textSize="15sp"
+					android:text="Time: 02'00"/>
 
 				<ImageView
+					android:onClick="onPause"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
+					android:layout_marginRight="5dp"
 					android:layout_alignParentRight="true"
-					android:src="@drawable/ic_pause_circle_outline_white_48dp"/>
+					android:src="@drawable/ic_play_arrow_white_48dp"/>
 
 			</RelativeLayout>
 
@@ -224,7 +229,7 @@
 				android:layout_height="30dp"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_clear_white_48dp"/>
-			
+
 		</LinearLayout>
 
 	</LinearLayout>

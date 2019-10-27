@@ -123,7 +123,7 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 				cells[i].setGravity(Gravity.CENTER);
 				cells[i].setTextColor(primary);
 				cells[i].setTextSize(20);
-				cells[i].setText("0");
+				//cells[i].setText("0");
 				addView(cells[i]);
 			}
 		}
