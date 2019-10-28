@@ -1,4 +1,4 @@
-#Sudoku Solver
+# Sudoku Solver
 
 >It is an application to solve sudoku grid.
 
@@ -7,7 +7,7 @@
 	<img style="float:right" width="49%" src="images/screenshot_solving.png" alt="screenshot_solving" />
 </div>
 
-##Credits
+## Credits
 
 This application uses:
 
@@ -21,7 +21,7 @@ For design:
 - **Android Support Library**
 - **Google Material Design Icons**
 
-##About
+## About
 
 Sudoku Solver is an application for solving sudoku grid directly from android camera.
 
@@ -29,7 +29,7 @@ Sudoku Solver is an application for solving sudoku grid directly from android ca
 This application run on all android device, but design is better on android **Lollipop** and higher.
 
 
-##Author
+## Author
 
 I'm  **Rivo Link**, you can find me on these link:
 
