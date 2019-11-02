@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#a0000000">
+
+	<RelativeLayout
+		android:orientation="horizontal"
+		android:layout_margin="25dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:background="@drawable/shape_popup"
+		android:padding="0dp"
+		android:radius="25dp">
+
+		<ImageView
+			android:id="@+id/img_close"
+			android:clickable="true"
+			android:layout_width="25dp"
+			android:layout_height="25dp"
+			android:src="@drawable/ic_clear_white_48dp"
+			android:layout_margin="5dp"
+			android:layout_alignParentEnd="true"
+			android:layout_alignParentRight="true"
+			android:background="@drawable/shape_round"
+			android:tint="@color/primary"/>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:layout_alignParentTop="true"
+			android:id="@+id/layout_top">
+
+			<TextView
+				android:id="@+id/text_count"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Filled cells:"
+				android:textColor="@color/primary"
+				android:paddingLeft="10dp"
+				/>
+
+			<SeekBar
+				android:id="@+id/seekbar_count"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:layout_below="@id/layout_top"
+			android:paddingBottom="10dp">
+
+			<ImageView
+				android:id="@+id/img_reset"
+				android:clickable="true"
+				android:background="@drawable/shape_round"
+				android:layout_weight="0.3"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:tint="@color/primary"
+				android:src="@drawable/ic_refresh_white_48dp"/>
+
+			<ImageView
+				android:id="@+id/img_export"
+				android:clickable="true"
+				android:background="@drawable/shape_round"
+				android:layout_weight="0.3"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:tint="@color/primary"
+				android:src="@drawable/ic_done_white_48dp"/>
+
+			<ImageView
+				android:id="@+id/img_new"
+				android:clickable="true"
+				android:background="@drawable/shape_round"
+				android:layout_weight="0.3"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:tint="@color/primary"
+				android:src="@drawable/ic_play_arrow_white_48dp"/>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+
+</RelativeLayout>
+

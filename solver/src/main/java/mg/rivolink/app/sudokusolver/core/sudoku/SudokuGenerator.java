@@ -11,28 +11,45 @@ import java.lang.Math;
 
 public class SudokuGenerator{
 
-	int SRN; // square root of N 
-    int N=9; // number of columns/rows. 
-    int K=10; // No. Of showing digits
-	int[][] soluce;
-	int[][] sudoku;
+	private int SRN; // square root of N 
+    private int N=9; // number of columns/rows
+    private int K=DEFAULT_K; // number of filled cells
+	private int[][] soluce;
+	private int[][] sudoku;
+
+	public static final int DEFAULT_K=30;
 
 	// Constructor
-	public SudokuGenerator(int K){
-		this(9,K);
+	public SudokuGenerator(){
+		this(9);
 	}
 
     // Constructor 
-    public SudokuGenerator(int N,int K){ 
+    public SudokuGenerator(int N){ 
         this.N=N; 
-        this.K=K; 
 
         // Compute square root of N 
         Double SRNd=Math.sqrt(N); 
         SRN=SRNd.intValue(); 
     }
 
-	// Get the sikution of generate game
+	public int getK(){
+		return K;
+	}
+
+	public int getN(){
+		return N;
+	}
+
+	// Get the matrix of generate game
+	public int[][] getSudoku(){
+		if(sudoku==null)
+			generate(DEFAULT_K);
+
+		return sudoku;
+	}
+
+	// Get the soluce of generate game
 	public int[][] getSoluce(){
 		if(soluce==null)
 			soluce=new int[N][N];
@@ -41,9 +58,10 @@ public class SudokuGenerator{
 	}
 
 	// Generate sudoku
-	public int[][] generate(){
-		soluce=new int[N][N];
-		sudoku=new int[N][N];
+	public int[][] generate(int K){
+		this.K=K;
+		this.soluce=new int[N][N];
+		this.sudoku=new int[N][N];
 
 		fillValues();
 
@@ -165,7 +183,7 @@ public class SudokuGenerator{
     } 
 
     // Add the K no. of digits to 
-    // complete game 
+    // complete game
     public void addKDigits(){ 
         int count=K; 
         while(count!=0){ 

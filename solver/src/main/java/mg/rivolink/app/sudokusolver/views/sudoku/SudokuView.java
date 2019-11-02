@@ -1,5 +1,6 @@
 package mg.rivolink.app.sudokusolver.views.sudoku;
 
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import mg.rivolink.app.sudokusolver.R;
 public class SudokuView extends LinearLayout implements View.OnTouchListener{
 
 	public interface OnSelectionChangeListener{
-		public void onChange(TextView before,TextView selected);
+		public void onChange(int selected);
 	}
 
 	public SudokuRow rows[]=new SudokuRow[9];
@@ -32,6 +33,7 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 	private int primary_light=Color.parseColor("#66cfd8dc");
 
 	private TextView selectedCell;
+
 	private OnSelectionChangeListener listener;
 
 	public SudokuView(Context context){
@@ -61,28 +63,41 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 		this.listener=listener;
 	}
 
+	public int getValue(int row,int coll){
+		String text=rows[row].cells[coll].getText().toString();
+		return (text.length()!=1)?0:Integer.parseInt(text);
+	}
+
+	public int getValue(int id){
+		return getValue(id/9,id%9);
+	}
+
 	public void setValue(int id,int value){
 		rows[id/9].cells[id%9].setText((0<value)?""+value:"");
 	}
 
-	public void free(){
+	public void badValue(int row,int col){
+		String text="<font color='red'>"+getValue(row,col)+"</font>";
+		rows[row].cells[col].setText(Html.fromHtml(text));
+	}
+
+	public void unselect(){
 		if(selectedCell!=null)
 			selectedCell.setBackgroundColor(Color.WHITE);
 
 		if(listener!=null)
-			listener.onChange(selectedCell,null);
+			listener.onChange(-1);
 
 		selectedCell=null;
 	}
 
 	public void fill(int[][] mat){
-
 		int val=0;
 		for(int row=0;row<mat.length;row++){
-			for(int cell=0;cell<mat[0].length;cell++){
-				val=mat[row][cell];
+			for(int col=0;col<mat[0].length;col++){
+				val=mat[row][col];
 
-				TextView view=rows[row].cells[cell];
+				TextView view=rows[row].cells[col];
 				if(0<val){
 					view.setText(""+val);
 					view.setEnabled(false);
@@ -122,11 +137,11 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 		if(selectedCell!=null)
 			selectedCell.setBackgroundColor(Color.WHITE);
 
-		if(listener!=null)
-			listener.onChange(selectedCell,(TextView)view);
-
 		selectedCell=(TextView)view;
 		selectedCell.setBackgroundColor(primary_light);
+
+		if(listener!=null)
+			listener.onChange(selectedCell.getId());
 
 		return true;
 	}
