@@ -34,5 +34,5 @@ This application run on all android device, but design is better on android **Lo
 I'm  **Rivo Link**, you can find me on these link:
 
 - [Github](https://github.com/RivoLink)
-- [LinkedIn](https://www.linkedin.com/)
-- [Facebook](https://www.facebook.com/rivolink03)
+- [LinkedIn](https://www.linkedin.com/in/rivo-link/)
+- [Facebook](https://www.facebook.com/rivo.link3)
