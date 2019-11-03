@@ -22,9 +22,9 @@
 			app:cardCornerRadius="5dp"
 			app:cardElevation="5dp"
 			app:contentPadding="5dp"
-			android:layout_marginTop="10dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
+			android:layout_marginTop="@dimen/card_margin10"
+			android:layout_marginLeft="@dimen/card_margin10"
+			android:layout_marginRight="@dimen/card_margin10"
 			android:layout_marginBottom="0dp">
 
 			<RelativeLayout
@@ -37,16 +37,16 @@
 					android:background="@drawable/shape_border"
 					android:gravity="center_vertical"
 					android:layout_width="match_parent"
-					android:layout_height="30dp"
+					android:layout_height="@dimen/icon_size"
 					android:paddingLeft="10dp"
 					android:textColor="#fff"
-					android:textSize="15sp"
+					android:textSize="@dimen/text_size"
 					android:text="Time: 02'00"/>
 
 				<ImageView
 					android:onClick="onPause"
-					android:layout_width="30dp"
-					android:layout_height="30dp"
+					android:layout_width="@dimen/icon_size"
+					android:layout_height="@dimen/icon_size"
 					android:layout_marginRight="5dp"
 					android:layout_alignParentRight="true"
 					android:src="@drawable/ic_play_arrow_white_48dp"/>
@@ -59,7 +59,7 @@
 			android:id="@+id/card_grid"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_margin="10dp"
+			android:layout_margin="@dimen/card_margin10"
 			app:cardBackgroundColor="@color/primary"
 			app:cardCornerRadius="5dp"
 			app:cardElevation="5dp"
@@ -88,9 +88,9 @@
 			app:cardElevation="5dp"
 			app:contentPadding="5dp"
 			android:layout_marginTop="0dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
-			android:layout_marginBottom="10dp">
+			android:layout_marginLeft="@dimen/card_margin10"
+			android:layout_marginRight="@dimen/card_margin10"
+			android:layout_marginBottom="@dimen/card_margin10">
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -184,16 +184,16 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
+			android:layout_marginLeft="@dimen/card_margin10"
+			android:layout_marginRight="@dimen/card_margin10"
 			android:orientation="horizontal">
 
 			<ImageView
 				android:onClick="onMenu"
 				android:background="@drawable/shape_round"
 				android:layout_weight="0.2"
-				android:layout_width="30dp"
-				android:layout_height="30dp"
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_add_white_48dp"/>
 
@@ -201,8 +201,8 @@
 				android:onClick="onVerify"
 				android:background="@drawable/shape_round"
 				android:layout_weight="0.2"
-				android:layout_width="30dp"
-				android:layout_height="30dp"
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_done_white_48dp"/>
 
@@ -210,8 +210,8 @@
 				android:onClick="onUndo"
 				android:background="@drawable/shape_round"
 				android:layout_weight="0.2"
-				android:layout_width="30dp"
-				android:layout_height="30dp"
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_undo_white_48dp"/>
 
@@ -219,8 +219,8 @@
 				android:onClick="onRedo"
 				android:background="@drawable/shape_round"
 				android:layout_weight="0.2"
-				android:layout_width="30dp"
-				android:layout_height="30dp"
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_redo_white_48dp"/>
 
@@ -228,8 +228,8 @@
 				android:onClick="onClear"
 				android:background="@drawable/shape_round"
 				android:layout_weight="0.2"
-				android:layout_width="30dp"
-				android:layout_height="30dp"
+				android:layout_width="@dimen/icon_size"
+				android:layout_height="@dimen/icon_size"
 				android:tint="@color/primary"
 				android:src="@drawable/ic_clear_white_48dp"/>
 

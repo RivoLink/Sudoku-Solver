@@ -1,6 +1,10 @@
 <resources>
 	
-    <dimen name="card_height">130dp</dimen>
+	<dimen name="text_size">13sp</dimen>
+	<dimen name="icon_size">25dp</dimen>
+
+	<dimen name="card_height">130dp</dimen>
+	<dimen name="card_margin10">5dp</dimen>
 	
 	<dimen name="camera_width">480px</dimen>
 	<dimen name="camera_height_portrait">720px</dimen>

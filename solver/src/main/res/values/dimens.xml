@@ -12,8 +12,12 @@
     <dimen name="standard_100">100dp</dimen>
     <dimen name="standard_145">145dp</dimen>
 	
+	<dimen name="text_size">15sp</dimen>
+	<dimen name="icon_size">30dp</dimen>
+	
 	<dimen name="card_height">150dp</dimen>
 	<dimen name="card_margin">7dp</dimen>
+	<dimen name="card_margin10">10dp</dimen>
 	<dimen name="card_elevation">5dp</dimen>
 	<dimen name="card_corner_radius">10dp</dimen>
 	
