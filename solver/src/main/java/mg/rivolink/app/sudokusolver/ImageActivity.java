@@ -1,27 +1,28 @@
 package mg.rivolink.app.sudokusolver;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import java.io.InputStream;
-import java.io.FileNotFoundException;
-
 import mg.rivolink.app.sudokusolver.core.SolverCore;
 import mg.rivolink.app.sudokusolver.core.sudoku.bfb.SolverBFB;
 import mg.rivolink.app.sudokusolver.core.tess.TessBaseAPI;
 
+import org.opencv.android.OpenCVLoader;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.OpenCVLoader;
+
+import android.os.Bundle;
+import android.net.Uri;
+import android.app.ProgressDialog;
+import android.view.View;
+import android.widget.Toast;
+import android.widget.ImageView;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+
+import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class ImageActivity extends AppCompatActivity{
 
@@ -68,17 +69,26 @@ public class ImageActivity extends AppCompatActivity{
 				actions();
 			}
 		});
+		
+		
+		if(getIntent().getStringExtra("image")!=null) try{
+			String filename=getIntent().getStringExtra("image");
+			FileInputStream is=this.openFileInput(filename);
+			imageView.setImageBitmap(bmp=BitmapFactory.decodeStream(is));
+			is.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 
-		if(getIntent().getData()!=null){
-            try{
-                Uri uri=getIntent().getData();
-                InputStream is=getContentResolver().openInputStream(uri);
-                imageView.setImageBitmap(bmp=BitmapFactory.decodeStream(is));
-			}
-			catch(FileNotFoundException e){
-                e.printStackTrace();
-            }
-        }
+		else if(getIntent().getData()!=null) try{
+        	Uri uri=getIntent().getData();
+            InputStream is=getContentResolver().openInputStream(uri);
+            imageView.setImageBitmap(bmp=BitmapFactory.decodeStream(is));
+		}
+		catch(FileNotFoundException e){
+        	e.printStackTrace();
+		}
 
 	}
 

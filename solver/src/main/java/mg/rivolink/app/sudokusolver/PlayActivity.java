@@ -1,14 +1,23 @@
 package mg.rivolink.app.sudokusolver;
 
+import java.io.FileOutputStream;
 import java.util.List;
 import java.util.LinkedList;
 
 import android.os.Bundle;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.view.View;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
+import android.content.Intent;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.Canvas;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 
 import mg.rivolink.app.sudokusolver.core.sudoku.SudokuGenerator;
@@ -93,13 +102,59 @@ public class PlayActivity extends AppCompatActivity
 				break;
 			} 
 			case Export:{
-				Toast.makeText(this,"Export",Toast.LENGTH_SHORT).show();
+				final ProgressDialog dialog=ProgressDialog.show(this,"","Please wait...",true);
+				final String filename="bitmap.png";
+				
+				new Thread(){
+					@Override
+					public void run(){
+						export(filename);
+						runOnUiThread(new Runnable(){
+							@Override
+							public void run(){
+								dialog.cancel();
+								
+								Intent intent=new Intent(PlayActivity.this,ImageActivity.class);
+								intent.putExtra("image",filename);
 
-				break;
+								startActivity(intent);
+							}
+						});
+					}
+				}.start();
 			}
 		}
 	}
 
+	private void export(String filename){
+		View card=findViewById(R.id.card_grid);
+		card.setDrawingCacheEnabled(true);
+		card.buildDrawingCache();
+		Bitmap bmp=Bitmap.createBitmap(card.getDrawingCache());
+		card.setDrawingCacheEnabled(false);
+		card.destroyDrawingCache();
+
+		int border=30;
+		Bitmap bmpBorder=Bitmap.createBitmap(bmp.getWidth()+2*border,bmp.getHeight()+2*border,bmp.getConfig());
+		Canvas canvas=new Canvas(bmpBorder);
+		canvas.drawColor(Color.WHITE);
+		canvas.drawBitmap(bmp,border,border,null);
+
+		try {
+			
+			FileOutputStream stream=this.openFileOutput(filename,Context.MODE_PRIVATE);
+			bmpBorder.compress(Bitmap.CompressFormat.PNG,100,stream);
+
+			stream.close();
+			bmp.recycle();
+			bmpBorder.recycle();
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 	public void onPause(View view){
 		paused=!paused;
 
@@ -178,16 +233,27 @@ public class PlayActivity extends AppCompatActivity
 
 	@Override
 	public void run(){
-		boolean solved=verifyUserSoluce();
-		final String text=(solved)?"Solved":"Wrong";
-
-		this.runOnUiThread(new Runnable(){
+		final boolean solved=verifyUserSoluce();
+		
+		runOnUiThread(new Runnable(){
 			@Override
 			public void run(){
-				Toast.makeText(PlayActivity.this,text,Toast.LENGTH_SHORT).show();
+				if(!solved)
+					Toast.makeText(PlayActivity.this,"Wrong...,",Toast.LENGTH_SHORT).show();
+				else{
+					AlertDialog alertDialog = new AlertDialog.Builder(PlayActivity.this).create();
+					alertDialog.setTitle("Sudoku Solved");
+					alertDialog.setMessage("Congratulation, you solved the sudoku in 2'00");
+					alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"OK",new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+							onMenu(null);
+						}
+					});
+					alertDialog.show();
+				}
 			}
 		});
-
 	}
 
 	private void countFilled(int id,int val){
@@ -264,9 +330,7 @@ public class PlayActivity extends AppCompatActivity
 		}
 	}
 
-	public void onRefresh(View view){
-
-	}
+	
 
 }
 

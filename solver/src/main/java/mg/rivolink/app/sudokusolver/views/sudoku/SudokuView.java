@@ -12,6 +12,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 
 import mg.rivolink.app.sudokusolver.R;
 
@@ -101,12 +102,12 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 				if(0<val){
 					view.setText(""+val);
 					view.setEnabled(false);
-					view.setTextColor(primary_blue);
+					view.setTextColor(primary);
 				}
 				else{
 					view.setText("");
 					view.setEnabled(true);
-					view.setTextColor(primary);
+					view.setTextColor(primary_blue);
 				}
 			}
 		}
@@ -178,7 +179,8 @@ public class SudokuView extends LinearLayout implements View.OnTouchListener{
 				cells[i].setOnTouchListener(listener);
 				cells[i].setGravity(Gravity.CENTER);
 				cells[i].setTextColor(primary);
-				cells[i].setTextSize(20);
+				cells[i].setTypeface(Typeface.DEFAULT_BOLD);
+				cells[i].setTextSize(23);
 				addView(cells[i]);
 			}
 		}

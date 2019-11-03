@@ -76,7 +76,7 @@
 				android:layout_width="30dp"
 				android:layout_height="30dp"
 				android:tint="@color/primary"
-				android:src="@drawable/ic_done_white_48dp"/>
+				android:src="@drawable/ic_open_in_new_white_48dp"/>
 
 			<ImageView
 				android:id="@+id/img_new"
