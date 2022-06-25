@@ -34,14 +34,14 @@
 
 				<TextView
 					android:id="@+id/text_time"
-					android:background="@drawable/shape_border"
-					android:gravity="center_vertical"
 					android:layout_width="match_parent"
 					android:layout_height="@dimen/icon_size"
+					android:background="@drawable/shape_border"
+					android:gravity="center_vertical"
 					android:paddingLeft="10dp"
+					android:text="Time: 02'00"
 					android:textColor="#fff"
-					android:textSize="@dimen/text_size"
-					android:text="Time: 02'00"/>
+					android:textSize="@dimen/text_size" />
 
 				<ImageView
 					android:onClick="onPause"
