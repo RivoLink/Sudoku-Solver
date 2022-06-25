@@ -1,6 +1,10 @@
 <resources>
 
+	<dimen name="standard_30">40dp</dimen>
+
 	<dimen name="card_height">180dp</dimen>
+	<dimen name="card_marginY">15dp</dimen>
+	<dimen name="card_margin10">10dp</dimen>
 	
 	<dimen name="camera_width">960px</dimen>
 	<dimen name="camera_height_portrait">1280px</dimen>
